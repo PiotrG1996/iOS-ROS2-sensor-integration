@@ -1,6 +1,6 @@
 # sensorstream_driver
 
-A ROS 2 driver that streams sensor data from an iPhone running the SensorStream app. Supports both WiFi (TCP) and USB (direct via libusbmuxd) connections, publishing camera, depth, IMU, GPS, and point cloud data as standard ROS 2 messages.
+A ROS 2 driver that streams sensor data from an iPhone running the SensorStream app. Supports both WiFi and USB connections, publishing camera, depth, IMU, GPS, and point cloud data as standard ROS 2 messages.
 
 ## Published Topics
 
@@ -55,28 +55,11 @@ ros2 run sensorstream_driver sensorstream_node --ros-args \
   -p usb_port:=3000
 ```
 
-### Using multiple instances
+### Using multiple devices
 
 You can override the node name and namespace to run multiple instances for use with multiple iPhones.
 
-```bash
-ros2 run sensorstream_driver sensorstream_node --ros-args \
-  -r __ns:=/iphone_1 \              # Override namespace for device 1
-  -r __node:=sensorstream_node_1 \  # Override node name
-```
-This makes the node name `/iphone_1/sensorstream_node_1`, and all topics will be under the `/iphone_1` namespace.
-
-Example topics with namespace:
-
-```
-/iphone_1/color_image/compressed
-/iphone_1/imu/data
-...
-```
-
-### Multiple devices
-
-To use multiple iPhones simultaneously, run separate instances with distinct namespaces and ports:
+Example:
 
 ```bash
 # Device 1
@@ -93,5 +76,8 @@ ros2 run sensorstream_driver sensorstream_node --ros-args \
   -p wifi_port:=5679 \
   -p usb_port:=2346
 ```
+
+
+
 
 
