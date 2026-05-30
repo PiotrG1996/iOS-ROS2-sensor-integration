@@ -1,0 +1,27 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+
+Visualization Manager:
+  Enabled: true
+  Global Options:
+    Fixed Frame: base_link
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+    - Class: rviz_default_plugins/PointCloud2
+      Name: PointCloud
+      Topic: /pointcloud
+    - Class: rviz_default_plugins/Image
+      Name: Color Image
+      Topic: /color_image
+    - Class: rviz_default_plugins/Image
+      Name: Depth Image
+      Topic: /depth_image
+    - Class: rviz_default_plugins/TF
+      Name: TF
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Robot Description: robot_description
+      Enabled: true

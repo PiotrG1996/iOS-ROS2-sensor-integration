@@ -2,6 +2,35 @@
 
 A ROS 2 driver that streams sensor data from an iPhone running the SensorStream app. Supports both WiFi and USB connections, publishing camera, depth, IMU, GPS, and point cloud data as standard ROS 2 messages.
 
+## RViz Simulation
+
+This package also includes a small iPhone sensor simulator for ROS 2 Humble. It publishes fake RGB, depth, IMU, GPS, and point cloud data so you can open RViz and verify the display pipeline without a physical iPhone.
+
+The simulator publishes these topics:
+
+- `/color_image` - RGB camera frames
+- `/depth_image` - 16-bit depth image in `16UC1`
+- `/imu/data` - simulated IMU data
+- `/gps/fix` - simulated GPS fix
+- `/pointcloud` - point cloud generated from the depth stream
+
+To launch the simulator and RViz together:
+
+```bash
+source /opt/ros/humble/setup.bash
+colcon build --packages-select sensorstream_driver
+source install/setup.bash
+ros2 launch sensorstream_driver rviz_sim.launch.py
+```
+
+If you only want the simulated sensor data, run:
+
+```bash
+ros2 run sensorstream_driver iphone_simulator
+```
+
+If RViz is running on a headless machine, you will need a display server such as X11 forwarding, VNC, or Xvfb.
+
 ## Published Topics
 
 | Topic                    | Type                                | QoS                      | Description              |

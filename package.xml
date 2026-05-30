@@ -10,6 +10,7 @@
 
   <depend>rclcpp</depend>
   <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
 
   <build_depend>libprotobuf-dev</build_depend>
   <build_depend>protobuf-compiler</build_depend>
@@ -17,6 +18,10 @@
 
   <exec_depend>libprotobuf-dev</exec_depend>
   <exec_depend>libusbmuxd-dev</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>python3</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
